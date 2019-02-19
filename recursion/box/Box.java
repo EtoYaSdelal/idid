@@ -5,23 +5,19 @@ import java.util.Random;
 public class Box {
     Box box;
     private static int count = 0;
-    private boolean isEmpty;
+    private boolean isEmpty = false;
     private boolean isKey;
     private String keyWord = "KKKey";
 
     public Box() {
         count++;
-        int rnd = new Random().nextInt(100);
-        if (rnd < 75) {
-            isEmpty = false;
-            if (rnd <= 25) {
-                isKey = true;
-            } else {
-                box = new Box();
-            }
+        int rnd = new Random().nextInt(1000);
+        if (rnd <= 50) {
+            isKey = true;
         } else {
-            isEmpty = true;
+            box = new Box();
         }
+
     }
 
     public boolean isEmpty() {
