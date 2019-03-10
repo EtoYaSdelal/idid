@@ -24,7 +24,7 @@ public class FruitUtil {
     }
 
 
-    public static List<Fruit> randomFruit(int num) {
+    private static List<Fruit> randomFruit(int num) {
         List<Fruit> randomFruit = new ArrayList<>();
         for (int i = 0; i < num; i++) {
             int rndNum = new Random().nextInt(4);
@@ -37,13 +37,13 @@ public class FruitUtil {
     private static Fruit getFruit(int num) {
         switch (num) {
             case 0:
-                return new Apple("apple");
+                return new Fruit.Apple("apple");
             case 1:
-                return new Orange("orange");
+                return new Fruit.Orange("orange");
             case 2:
-                return new Pear("pear");
+                return new Fruit.Pear("pear");
             case 3:
-                return new Banana("banana");
+                return new Fruit.Banana("banana");
             default:
                 return new Fruit("awesome fruit");
         }
@@ -52,15 +52,15 @@ public class FruitUtil {
     private static Fruit getDifferentFruit(int num) {
         switch (num) {
             case 0:
-                return new Apple("apple" + Apple.appleCounter);
+                return new Fruit.Apple("apple" + Fruit.Apple.appleCounter);
             case 1:
-                return new Orange("orange" + Orange.orangeCounter);
+                return new Fruit.Orange("orange" + Fruit.Orange.orangeCounter);
             case 2:
-                return new Pear("pear" + Pear.pearCounter);
+                return new Fruit.Pear("pear" + Fruit.Pear.pearCounter);
             case 3:
-                return new Banana("banana" + Banana.bananaCounter);
+                return new Fruit.Banana("banana" + Fruit.Banana.bananaCounter);
             default:
-                return new Fruit("awesome fruit");
+                return new Fruit("just fruit");
         }
     }
 
@@ -74,6 +74,14 @@ public class FruitUtil {
             map.put(f.getName(), f);
         }
         return map;
+    }
+
+    public static void setFruitIdtoZero(){
+        Fruit.setCount(0);
+        Fruit.Banana.bananaCounter = 0;
+        Fruit.Apple.appleCounter = 0;
+        Fruit.Pear.pearCounter = 0;
+        Fruit.Orange.orangeCounter = 0;
     }
 
 

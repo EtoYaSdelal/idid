@@ -1,16 +1,10 @@
 package Collections.source;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Random;
-
 public class Fruit {
 
     private static int count;
     private int id = count++;
     private String name;
-
 
     public Fruit(String name) {
         this.name = name;
@@ -40,21 +34,39 @@ public class Fruit {
                 '}';
     }
 
-//    @Override
-//    public int compareTo(Fruit o) {
-//        return getId() - o.getId();
-//    }
+    public static class Apple extends Fruit {
+        public static int appleCounter = 0;
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Fruit fruit = (Fruit) o;
-//        return Objects.equals(name, fruit.name);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(name);
-//    }
+        public Apple(String name) {
+            super(name);
+            appleCounter++;
+        }
+    }
+
+    public static class Banana extends Fruit {
+        public static int bananaCounter = 0;
+
+        public Banana(String name) {
+            super(name);
+            bananaCounter++;
+        }
+    }
+
+    public static class Orange extends Fruit {
+        public static int orangeCounter = 0;
+
+        public Orange(String name) {
+            super(name);
+            orangeCounter++;
+        }
+    }
+
+    public static class Pear extends Fruit {
+        public static int pearCounter = 0;
+
+        public Pear(String name) {
+            super(name);
+            pearCounter++;
+        }
+    }
 }
