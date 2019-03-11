@@ -24,7 +24,9 @@ public class FruitUtil {
     }
 
 
-    private static List<Fruit> randomFruit(int num) {
+
+
+    private static List<Fruit> randomFruitList(int num) {
         List<Fruit> randomFruit = new ArrayList<>();
         for (int i = 0; i < num; i++) {
             int rndNum = new Random().nextInt(4);
@@ -65,12 +67,12 @@ public class FruitUtil {
     }
 
     public static Collection fill(Collection<Fruit> collection, int num) {
-        collection.addAll(randomFruit(num));
+        collection.addAll(randomFruitList(num));
         return collection;
     }
 
     public static Map fill(Map<String, Fruit> map, int num) {
-        for (Fruit f : randomFruit(num)) {
+        for (Fruit f : randomFruitList(num)) {
             map.put(f.getName(), f);
         }
         return map;
@@ -84,5 +86,14 @@ public class FruitUtil {
         Fruit.Orange.orangeCounter = 0;
     }
 
+
+    public static Fruit[] createArray(int length){
+        Fruit[] fruits = new Fruit[length];
+        for(int i = 0; i < fruits.length; i++){
+            int rndNum = new Random().nextInt(4);
+            fruits[i] = getDifferentFruit(rndNum);
+        }
+        return fruits;
+    }
 
 }
